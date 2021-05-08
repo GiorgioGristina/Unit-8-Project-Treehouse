@@ -1,0 +1,12 @@
+/* card styling */
+
+.card{
+    background-color: aqua;
+    border: black 3px solid;
+    display: flex;
+    padding: 10px;
+}
+
+.avatar{
+    border-radius: 50% ;
+}
