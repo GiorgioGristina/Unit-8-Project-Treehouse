@@ -3,6 +3,7 @@
 .card{
     background-color: aqua;
     border: black 3px solid;
+    border-radius: 5%;
     display: flex;
     padding: 10px;
     margin: 20px;
@@ -10,8 +11,8 @@
 
 .avatar{
     border-radius: 50% 50% ;
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     padding: 10px;
     margin: 5px;
 }
@@ -25,7 +26,7 @@
 }
 
 /* element inside text-container*/
-
+.text-container p,
 .name, 
 .email,
 .address{
@@ -40,3 +41,25 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
 }
+
+
+/* modal styling */
+
+.modal-content,
+.modal{
+    background-color: beige;
+    border: 2px black dashed;   
+    display: flex;
+    flex-direction: column; 
+    width: 90%;
+    align-items: center;
+   
+    padding: 20px;
+}
+
+.modal-content .text-container p,
+.modal-content .text-container h2{
+    text-align: center;
+    font-size: 25px;
+}
+
