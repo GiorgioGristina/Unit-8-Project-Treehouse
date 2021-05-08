@@ -5,8 +5,38 @@
     border: black 3px solid;
     display: flex;
     padding: 10px;
+    margin: 20px;
 }
 
 .avatar{
-    border-radius: 50% ;
+    border-radius: 50% 50% ;
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.text-container{
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* element inside text-container*/
+
+.name, 
+.email,
+.address{
+    background-color: chocolate;
+    border: darkblue solid 2px;
+}
+
+/* grid layout cards */
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
 }
