@@ -45,21 +45,65 @@
 
 /* modal styling */
 
-.modal-content,
-.modal{
+.modal-content{
     background-color: beige;
     border: 2px black dashed;   
     display: flex;
     flex-direction: column; 
     width: 90%;
     align-items: center;
-   
+    
     padding: 20px;
 }
+
 
 .modal-content .text-container p,
 .modal-content .text-container h2{
     text-align: center;
     font-size: 25px;
+    width: 100%;
 }
 
+
+
+/* create overlay */
+
+body{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(100, 100, 100, 0.4);
+}
+
+.modal {
+    width: 375px;
+    margin: 15% auto auto;
+    position: relative;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #778;
+    border-radius: 5px;
+    padding: 30px 20p;
+}
+
+/* modal close layout */
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+    }
+
+/* hidden class to not display the overlay */
+
+.hidden {
+    display: none;
+    }
+    
