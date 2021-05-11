@@ -11,26 +11,22 @@ const modalClose = document.querySelector('.modal-close');
 // fetch data from API
 
 fetch(urlAPI)
-    .then(res => console.log(res.json()))
-    
+    .then(res => res.json())
+    .then(res => console.log(res.results))
     .then(displayEmployees)
-    .catch(err => console.log(err))
-
-
-
 
 
 //function to dysplay the employ
 
 function displayEmployees(employeeData){
     employees = employeeData;
-    employeeHTML = '';
+    let employeeHTML = '';
 
-    employees.forEach((employee, index) =>{
-        let name = employees.name;
-        let email = employees.email;
-        let city = employees.location.city;
-        let picture = employees.picture;
+    employees.forEach((employee, index) => {
+        let name = employee.name;
+        let email = employee.email;
+        let city = employee.location.city;
+        let picture = employee.picture;
         employeeHTML += `
             <div class="card" data-index='${index}'>
                 <img class="avatar" src="${picture.large}" />
@@ -42,7 +38,7 @@ function displayEmployees(employeeData){
             </div>
         `
     });
-    gridContainer.innerHTML = employeeHTML;
+    gridContainer.innerHTML= employeeHTML;
 }
 
 
