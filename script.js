@@ -12,9 +12,8 @@ const modalClose = document.querySelector('.modal-close');
 
 fetch(urlAPI)
     .then(res => res.json())
-    .then(res => console.log(res.results))
-    .then(displayEmployees)
-
+    .then(data => displayEmployees(data.results))
+    .catch(err => console.log(err))
 
 //function to dysplay the employ
 
@@ -23,12 +22,14 @@ function displayEmployees(employeeData){
     let employeeHTML = '';
 
     employees.forEach((employee, index) => {
+        
         let name = employee.name;
         let email = employee.email;
         let city = employee.location.city;
         let picture = employee.picture;
+       
         employeeHTML += `
-            <div class="card" data-index='${index}'>
+            <div class="card" data-index="${index}">
                 <img class="avatar" src="${picture.large}" />
                 <div class="text-container">
                     <h2 class="name">${name.first} ${name.last}</h2>
@@ -36,9 +37,11 @@ function displayEmployees(employeeData){
                     <p class="address">${city}</p>
                 </div>
             </div>
-        `
+        `;
+       
     });
     gridContainer.innerHTML= employeeHTML;
+    
 }
 
 
@@ -46,5 +49,41 @@ function displayEmployees(employeeData){
 
 function displayModal(index){
     
+    let { name, dob, phone, email, 
+    location: {city, street, state, postcode}, picture} = employees[index];
 
+        let date = new Date(dob.date);
+
+        const modalHTML = `
+            <img class="avatar" src="${picture.large}" />
+            <div class="text-container">
+                <h2 class="name">${name.first} ${name.last}</h2>
+                <p class="email">${email}</p>
+                <p class="address">${city}</p>
+                <hr />
+                <p>${phone}</p>
+                <p class="address">${street}, ${state} ${postcode} WV 84814</p>
+                <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            </div>
+        `;
+
+        overlay.classList.remove('hidden');
+        modalContainer.innerHTML = modalHTML;
 }
+
+gridContainer.addEventListener('click', e => {
+    if(e.target !== gridContainer){
+        const card = e.target.closest('.card');
+        const index = card.getAttribute('data-index');
+        
+        displayModal(index)
+        
+    }
+
+});
+
+modalClose.addEventListener('click', () =>{
+    overlay.classList.add('hidden')
+
+});
+
