@@ -12,6 +12,7 @@ const modalClose = document.querySelector('.modal-close');
 
 fetch(urlAPI)
     .then(res => res.json())
+  //  .then(data => console.log(data))
     .then(data => displayEmployees(data.results))
     .catch(err => console.log(err))
 
@@ -62,7 +63,7 @@ function displayModal(index){
                 <p class="address">${city}</p>
                 <hr />
                 <p>${phone}</p>
-                <p class="address">${street}, ${state} ${postcode} WV 84814</p>
+                <p class="address">${street.number} ${street.name}, ${state} ${postcode} WV 84814</p>
                 <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
             </div>
         `;
