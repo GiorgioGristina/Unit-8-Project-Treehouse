@@ -13,10 +13,8 @@
 
 .avatar{
     border-radius: 50% 50% ;
-    width: 150px;
-    height: 150px;
-    padding: 10px;
-    margin: 5px;
+    width: 75px;
+    height: 75px;
     align-self: center;
 }
 
@@ -49,11 +47,11 @@
     border: 2px black solid;   
     display: flex;
     flex-direction: column; 
-    width: 90%;
+    
     align-items: center;
     
     padding: 20px;
-    font-size: 5%;
+   
 }
 
 
@@ -82,7 +80,7 @@ body{
 }
 
 .modal {
-    width: 375px;
+    width: 450px;
     margin: 15% auto auto;
     position: relative;
     text-align: center;
